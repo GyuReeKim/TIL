@@ -376,17 +376,15 @@ import requests
 
 url = "https://api.bithumb.com/public/ticker/btc"
 data = requests.get(url).json()['data']
-print(data)
+print(data) # 딕셔너리임을 알 수 있다.
 
-d = dict(data)
-open_price = int(d['opening_price'])
-close_price = int(d['closing_price'])
-minmin_price = int(d['min_price'])
-maxmax_price = int(d['max_price'])
+start_price = int(data['opening_price'])
+maximum = int(data['max_price'])
+minimum = int(data['min_price'])
 
-change_price = maxmax_price - minmin_price
+coin_range = maximum - minimum
 
-if open_price + change_price > maxmax_price:
+if maximum < start_price + coin_range:
     print('상승장')
 else:
     print('하락장')
