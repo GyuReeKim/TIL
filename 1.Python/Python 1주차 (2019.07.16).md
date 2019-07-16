@@ -237,6 +237,8 @@ print는 재사용하지 않지만, return은 재사용이 가능하다.
 ````python
 del data["date"]
 
+del data["date"]
+
 for key, data_price in data.items():
     for d, price in data_price.items():
         if d == "opening_price":
@@ -250,12 +252,13 @@ for key, data_price in data.items():
     maximum = float(maximum_price)
     minimum = float(minimum_price)
     coin_range = maximum - minimum
-
+    
     if maximum < start_price + coin_range:
-        print("상승장")
+        result = "상승장"
     else:
-        print("하락장")
-# key의 값을 출력하지 못했다.
+        result = "하락장"
+        
+    print(key + " " + result)
 ````
 
 
