@@ -386,10 +386,10 @@ def lonely(couple):
 ```python
 a = "hI! Everyone, I'm kim"
 
-a.capitalize()
+a.capitalize() # 앞글자를 대문자로 만들어 반환
 # a라고 하는 변수에 문자열이 들어있다. capitalize라는 기능이 있다.
-a.title()
-a.upper()
+a.title() # ' 와 공백 이후를 대문자로 만들어 반환
+a.upper() # 모두 대문자로 반환
 ```
 
 위의 값들은 원본 데이터를 건드리지 않는다.
@@ -401,8 +401,8 @@ a.upper()
 ```python
 a = "hI! Everyone, I'm kim"
 
-a.lower()
-a.swapcase()
+a.lower() # 모두 소문자로 반환
+a.swapcase() # 대-소문자 변경후 반환
 ```
 
 
@@ -420,7 +420,7 @@ a.swapcase()
 
 ```python
 word = 'yay!'
-word.replace('a', '_')
+word.replace('a', '_') # 바꿀 대상을 새로운 글자로 바꿔서 반환
 
 word2 = 'wooooooow'
 print(word2.replace('o', 'a', 3))
@@ -630,4 +630,3 @@ print(a)
 caffe.clear() # 데이터를 모두 지운다.
 print(caffe)
 ```
-
