@@ -106,7 +106,7 @@ def positive_sum(*numbers):
 import requests
 
 url = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json'
-key = '660f73acbf0225280f5db341b9f4e840'
+key = 'secret'
 movie_url = f'{url}?key={key}&targetDt=20190713&weekGb=0'
 print(movie_url)
 
@@ -164,7 +164,7 @@ for i in range(5):
     targetDt = datetime.datetime(2019, 7, 13) - datetime.timedelta(weeks=i)
     targetDt = targetDt.strftime('%Y%m%d')
     url = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json'
-    key = '660f73acbf0225280f5db341b9f4e840'
+    key = 'secret'
     movie_url = f'{url}?key={key}&targetDt={targetDt}&weekGb=0'
     print(movie_url)
 ```
@@ -198,7 +198,7 @@ for i in range(50):
     targetDt = datetime.datetime(2018, 8, 4) + datetime.timedelta(weeks=i)
     targetDt = targetDt.strftime('%Y%m%d')
     url = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json'
-    key = '1ecb949bfcb4945245868b107581120a'
+    key = 'secret'
     movie_url = f'{url}?key={key}&targetDt={targetDt}&weekGb=0'
 
     res = requests.get(movie_url).json()
