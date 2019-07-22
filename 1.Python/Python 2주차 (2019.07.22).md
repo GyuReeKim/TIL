@@ -484,8 +484,6 @@ def my_url(itemPerPage=10, **kwargs):
     return base_url
 ````
 
-
-
 ```python
 # from 모듈명 import 어트리뷰트
 # 모듈 안의 어트리뷰트를 불러온다.
@@ -809,10 +807,6 @@ finally:
 # 'pineapple'에러가 발생!!!
 # finally!!!
 ```
-
-
-
-
 
 
 
