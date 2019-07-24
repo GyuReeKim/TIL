@@ -540,6 +540,7 @@ print(f'{value}가 빠져나온 결과는 {numbers}입니다.')
 #### .index(x)
 
 ```python
+# x의 값을 찾아 index 값(x 값의 위치)을 반환한다.
 numbers = [1, 2, 3, 4, 5]
 numbers.index(1)
 numbers.index(10)
@@ -550,6 +551,7 @@ numbers.index(10)
 #### .count(x)
 
 ```python
+# 원하는 값의 갯수를 확인할 수 있다.
 numbers = [1, 2, 5, 1, 5, 1]
 numbers.count(1)
 num = 1
@@ -563,6 +565,7 @@ num is numbers
 #### .sort()
 
 ````python
+# 순서를 정렬해준다. # 원본을 바꿔줌
 import random
 lotto = random.sample(range(1, 46), 6)
 print(lotto.sort(reverse=True)) # 'reverse=True': 역순 출력
@@ -573,6 +576,7 @@ print(lotto.sort(reverse=True)) # 'reverse=True': 역순 출력
 #### .reverse()
 
 ```python
+# 현재 순서를 반대로 뒤집어준다.
 classroom = ['Tom', 'David', 'Justin', 'change']
 classroom.reverse()
 ```
@@ -582,6 +586,7 @@ classroom.reverse()
 ### 복사
 
 ```python
+# 값을 복사해준다.
 original_list = [1, 2, 3]
 copy_list = original_list
 print(original_list)
@@ -635,6 +640,7 @@ print(a)
 #### .clear()
 
 ```python
+# 리스트의 
 caffe.clear() # 데이터를 모두 지운다.
 print(caffe)
 ```
