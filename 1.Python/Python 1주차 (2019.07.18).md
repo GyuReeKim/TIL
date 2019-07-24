@@ -430,8 +430,8 @@ print(word2.replace('o', 'a', 3))
 
 #### .strip(chars)
 
-```
-'            hello'.strip()
+```python
+'            hello'.strip() # 특정 문자나 공백 제거
 '    hello       '.lstrip()
 'hihihihi123ihihi'.rstrip('hi')
 ```
@@ -443,6 +443,7 @@ print(word2.replace('o', 'a', 3))
 #### .find(x)
 
 ```python
+# x의 첫번째 위치를 반환한다. 없으면 -1을 반환한다.
 'apple'.find('a')
 'apple'.find('z') # -1 반환
 ```
@@ -452,6 +453,7 @@ print(word2.replace('o', 'a', 3))
 #### .index(x)
 
 ```python
+# x의 첫번째 위치를 반환한다. 없으면 오류가 발생
 'apple'.index('a')
 'apple'.index('z') # 오류 발생
 ```
@@ -461,6 +463,7 @@ print(word2.replace('o', 'a', 3))
 #### .split(x)
 
 ```python
+# 문자열을 특정 단위로 나누어 리스트로 반환
 'apple peach grape'.split()
 'apple!peach!grape'.split('!')
 ```
@@ -476,6 +479,7 @@ print(word2.replace('o', 'a', 3))
 #### .append(x)
 
 ```python
+# 리스트에 값을 추가한다.
 caffe = ['starbucks', 'tomntoms', 'hollys']
 caffe.append('coffeebene')
 caffe[len(caffe):] = ['ediya']
@@ -486,6 +490,7 @@ caffe[len(caffe):] = ['ediya']
 #### .extend(iterable)
 
 ````python
+# 리스트에 literable(list, range, tuple, string등) 값을 붙여준다.
 caffe.extend(['droptop', '흑화당'])
 caffe += ['빽다방', 'megacoffee']
 caffe.append(['청자다방'])
@@ -497,6 +502,7 @@ caffe.extend('커피빈')
 #### .insert(i, x)
 
 ```python
+# 정해진 위치 i에 x 값을 추가한다.
 caffe.insert(0, 'hi')
 caffe.insert(-1, 'bye')
 caffe.insert(len(caffe), 'bye')
@@ -508,6 +514,7 @@ caffe.insert(999, 'hihi')
 #### .remove(x)
 
 ```python
+# 리스트에서 값이 x인 것을 하나씩 삭제한다. # 순서는?
 numbers = [1, 2, 3, 1, 2]
 numbers.remove(1)
 numbers.remove(1)
@@ -519,6 +526,7 @@ numbers.remove(1)
 #### .pop(i)
 
 ```python
+# i 위치의 값을 삭제하며, 그 항목을 반환한다.
 numbers = [1, 2, 3, 4, 5, 6]
 print(numbers.pop(0)) # 원본을 바꿀 수 있다.
 value = numbers.pop(4)
