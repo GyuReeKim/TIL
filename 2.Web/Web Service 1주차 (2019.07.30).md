@@ -238,6 +238,14 @@ color {
 
 ## Box model
 
+### Box
+
+![box](assets/box.PNG)
+
+margin, border, padding, contents로 구성되어있다.
+
+
+
 ![css_box](assets/css_box.png)
 
 ```css
