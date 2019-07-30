@@ -22,7 +22,7 @@ html과 css는 에러가 없는 언어지만, 사용자가 원하는 것 처럼 
 
 
 
-![1564473487621](assets/1564473487621.png)
+![css_intro](assets/css_intro.png)
 
 #### 1. inline (인라인)
 
@@ -82,7 +82,7 @@ lorem5 + tab :  의미없는 단어 5개 나열해준다.
 
 값에는 키워드, 크기 단위, 색깔 등이 들어갈 수 있다.
 
-![1564473544442](assets/1564473544442.png)
+![css_val](assets/css_val.png)
 
 ### 1. 키워드
 
@@ -94,7 +94,7 @@ f12키를 누르고, element.style 클릭하면 정보 수정이 가능하다. �
 
 #### 픽셀
 
-![1564473576164](assets/1564473576164.png)
+![css_val_1](assets/css_val_1.png)
 
 > 고화질은 픽셀이 엄청 많다. 디바이스별로 픽셀의 크기가 제각각이다.
 
@@ -120,7 +120,7 @@ f12키를 누르고, element.style 클릭하면 정보 수정이 가능하다. �
 
 #### %
 
-![1564473591082](assets/1564473591082.png)
+![css_val_2](assets/css_val_2.png)
 
 > %는 백분율 단위의 상대 단위이다.
 
@@ -138,7 +138,7 @@ f12키를 누르고, element.style 클릭하면 정보 수정이 가능하다. �
 
 
 
-![1564473609936](assets/1564473609936.png)
+![css_val_3](assets/css_val_3.png)
 
 ```css
 /* div는 부모 */
@@ -164,7 +164,7 @@ h1 {
 
 > 배수단위로 상대단위이다.
 
-![1564473629563](assets/1564473629563.png)
+![css_val_4](assets/css_val_4.png)
 
 ```css
 #lunch {
@@ -182,7 +182,7 @@ h1 {
 
 > rem은 root값에 따라 일정하다.
 
-![1564473640984](assets/1564473640984.png)
+![css_val_5](assets/css_val_5.png)
 
 ```css
 #snack {
@@ -202,7 +202,7 @@ h1 {
 
 > 화면의 비율이 바뀌면 그 상황에 따라 조절된다.
 
-![1564473665372](assets/1564473665372.png)
+![css_val_6](assets/css_val_6.png)
 
 ```css
 #menu {
@@ -238,7 +238,7 @@ color {
 
 ## Box model
 
-![1564473731215](assets/1564473731215.png)
+![css_box](assets/css_box.png)
 
 ```css
 div {
@@ -289,7 +289,7 @@ div {
 
 
 
-![1564473799383](assets/1564473799383.png)
+![css_box_1](assets/css_box_1.png)
 
 ```css
 /* 모든방향 10 */
@@ -321,13 +321,13 @@ div {
 
 ## display 속성
 
-![1564474179582](assets/1564474179582.png)
+![css_display_1](assets/css_display_1.png)
 
-![1564474208194](assets/1564474208194.png)
+![css_display_2](assets/css_display_2.png)
 
 
 
-![1564474249441](assets/1564474249441.png)
+![css_display_3](assets/css_display_3.png)
 
 ```css
 div {
@@ -363,7 +363,7 @@ div {
 
 ### 1. block
 
-![1564474179582](assets/1564474179582.png)
+![css_display_1](assets/css_display_1.png)
 
 항상 새로운 라인에서 시작한다. 화면 크기 전체의 가로폭을 차지한다.
 
@@ -384,7 +384,7 @@ width를 사용하지 않으면 왼쪽 끝부터 오른쪽 끝까지 차지한�
 
 ### 2. inline
 
-![1564474438564](assets/1564474438564.png)
+![css_dispay_inline](assets/css_display_inline.png)
 
 새로운 라인에서 시작하지 않으며 문장의 중간에 들어갈 수 있고, content의 너비만큼 가로폭을 차지한다.
 
@@ -412,7 +412,7 @@ inline은 붙어서 나온다.
 
 ### 3. inline-block
 
-![1564474489810](assets/1564474489810.png)
+![css_display_inline_block](assets/css_display_inline_block.png)
 
 inline과는 다르게 margin을 사용할 수 있다.
 
@@ -455,7 +455,7 @@ None은 배치 자체가 안되는 반면, hidden은 눈에만 보이지 않고,
 
 ### 6. background image
 
-![1564474551516](assets/1564474551516.png)
+![css_display_background_image](assets/css_display_background_image.png)
 
 ```css
 <h1 class="bg">안녕하세요.</h1>
@@ -473,7 +473,7 @@ None은 배치 자체가 안되는 반면, hidden은 눈에만 보이지 않고,
 
 ### 7. font
 
-![1564474561004](assets/1564474561004.png)
+![css_display_font](assets/css_display_font.png)
 
 ```css
 .text {
@@ -495,7 +495,7 @@ css에는 'Specify in CSS'를 넣어주면 된다.
 
 ## Position
 
-![1564474733805](assets/1564474733805.png)
+![css_position](assets/css_position.png)
 
 ```css
 div {
@@ -632,7 +632,7 @@ Youtube등의 사이트에서 스크롤바를 내려도 움직이지 않는 부�
 
 ### Position 실습
 
-![1564475829418](assets/1564475829418.png)
+![css_position_practice](assets/css_position_practice.png)
 
 ```css
 .big-box {
@@ -713,7 +713,7 @@ Youtube등의 사이트에서 스크롤바를 내려도 움직이지 않는 부�
 
 ## Subway
 
-![1564473194996](assets/1564473194996.png)
+![subway_final](assets/subway_final.png)
 
 ```html
 <h1>서브웨이 주문하기</h1>
