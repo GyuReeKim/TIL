@@ -50,6 +50,8 @@ def create():
 
 > 새로운 제품을 등록해주는 경로와 html을 만들어준다.
 
+![flask_new](assets/flask_new.PNG)
+
 ```python
 @app.route('/new')
 def new():
@@ -88,6 +90,8 @@ getbootstrap.com에서 Documentation - Components - Form을 참고한다.
 
 > 저장이 완료되었음을 알려주는 html을 만들어준다.
 
+![flask_create](assets/flask_create.PNG)
+
 ```python
 @app.route('/create')
 def create():
@@ -118,6 +122,8 @@ def create():
 ### nono
 
 > nono페이지의 html을 만들어준다.
+
+![flask_nono](assets/flask_nono.PNG)
 
 ```python
 def nono():
@@ -189,6 +195,8 @@ def nono():
 
 
 ### nonocard 직접 써보기
+
+![flask_nonocard](assets/flask_nonocard.PNG)
 
 ```python
 @app.route('/nonocard')
