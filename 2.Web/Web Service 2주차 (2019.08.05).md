@@ -328,6 +328,8 @@ def christmas(request):
 
 #### christmas.html
 
+> 'https://isitchristmas.com/' 참고
+
 ```html
 {% extends 'base.html' %}
 
