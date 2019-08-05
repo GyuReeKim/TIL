@@ -285,6 +285,8 @@ def christmas(request):
 
 #### dtl.html
 
+![django_dtl](assets/django_dtl.JPG)
+
 ```html
 {% extends 'base.html' %}
 
@@ -351,5 +353,88 @@ source venv/Script/activate
 pip install django
 django-admin startproject classroom .
 python manage.py runserver
+```
+
+
+
+### urls.py
+
+```python
+from django.contrib import admin
+from django.urls import path
+from pages import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('info/', views.info),
+    path('student/<str:name>/', views.student),
+]
+```
+
+
+
+### views.py
+
+```python
+from django.shortcuts import render
+
+def info(request):
+    teacher = 'NAME'
+    students = ['홍길동', '김길동', '박길동']
+    context = {
+        'teacher': teacher,
+        'students': students,
+    }
+    return render(request, 'info.html', context)
+
+def student(request, name):
+    student_age = {
+        '홍길동': 26,
+        '김길동': 27,
+        '박길동': 28,
+    }
+    
+    for n, a in student_age.items():
+        if n == name:
+            age = a
+
+    context = {
+        'name': name,
+        'age': age,
+    }
+    return render(request, 'student.html', context)
+```
+
+
+
+### templates
+
+#### info.html
+
+![workshop13_info](assets/workshop13_info.JPG)
+
+````html
+<h1>우리반 정보</h1>
+<h2>Teacher</h2>
+<ul>
+    <li>{{teacher}}</li>
+</ul>
+<h2>Student</h2>
+<ul>
+    {% for student in students %}
+    <li>{{student}}</li>
+    {% endfor %}
+</ul>
+````
+
+
+
+#### student.html
+
+![workshop13_student](assets/workshop13_student.JPG)
+
+```html
+<h1>이름:{{name}}</h1>
+<h2>나이:{{age}}</h2>
 ```
 
