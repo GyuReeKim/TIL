@@ -316,25 +316,25 @@ python manage.py shell
 >>> p = Post # <Post: Post object (None)>
 >>> p.title # ''
 >>> p.title = '안녕하세요'
-p.content = '반갑습니다'
-p.title # '안녕하세요'
-p.content # '반갑습니다'
-p # <Post: Post object (None)>
-p.save()
-p # <Post: Post object (1)>
+>>> p.content = '반갑습니다'
+>>> p.title # '안녕하세요'
+>>> p.content # '반갑습니다'
+>>> p # <Post: Post object (None)>
+>>> p.save()
+>>> p # <Post: Post object (1)>
 
-p2 = Post()
-p2 # <Post: Post object (None)>
-p2.title = '두번째 게시물'
-p2.content = '내용 두번째'
-p2 # <Post: Post object (None)>
-p2.save()
-p2 # <Post: Post object (1)>
+>>> p2 = Post()
+>>> p2 # <Post: Post object (None)>
+>>> p2.title = '두번째 게시물'
+>>> p2.content = '내용 두번째'
+>>> p2 # <Post: Post object (None)>
+>>> p2.save()
+>>> p2 # <Post: Post object (1)>
 
-Post.objects.all() # <QuerySet [<Post: Post object (1), <Post: Post object (2)>]>
-Post.objects.all()[1] # <Post: Post object (2)>
+>>> Post.objects.all() # <QuerySet [<Post: Post object (1), <Post: Post object (2)>]>
+>>> Post.objects.all()[1] # <Post: Post object (2)>
 
-exit() # 나가기
+>>> exit() # 나가기
 ```
 
 
@@ -410,18 +410,18 @@ python manage.py shell_plus
 ![django_02_sqlite_table_2](assets/django_02_sqlite_table_2.JPG)
 
 ```python
-p.title = 'hello'
-p.title # 'hello'
-p.save()
+>>> p.title = 'hello'
+>>> p.title # 'hello'
+>>> p.save()
 ```
 
 ![django_02_sqlite_table_3](assets/django_02_sqlite_table_3.JPG)
 
 ```python
-p.delete() # (1, {'posts.Post': 1})
-post1 = Post(title='하이' content='헬로')
-post1.title # '하이'
-post1.save()
+>>> p.delete() # (1, {'posts.Post': 1})
+>>> post1 = Post(title='하이' content='헬로')
+>>> post1.title # '하이'
+>>> post1.save()
 ```
 
 
