@@ -302,7 +302,6 @@ urlpatterns = [
     path('create/', views.create),
     # Read
     path('', views.index),
-
     path('<int:question_id>/answers/create/', views.answer_create),
 ]
 ```
