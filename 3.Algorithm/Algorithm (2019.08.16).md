@@ -204,3 +204,20 @@ for i: 0 -> N-M # 패턴의 길이만큼 비교구간을 만들었을 때 시작
 return -1 # 패턴이 존재하지 않음
 ```
 
+
+
+## 문제 풀이
+
+### find 함수 정의
+
+```python
+def find():
+	for i in range(0, len(str2)-len(str1)+1): # str2에서 비교를 시작하는 위치
+        j = 0
+        while str1[j] == str2[i+j]:
+            j += 1
+        	if j == len(str1):
+            	return 1
+    return 0
+```
+
