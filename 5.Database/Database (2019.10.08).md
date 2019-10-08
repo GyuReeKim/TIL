@@ -518,7 +518,6 @@ rowid       name        age         address
 
 ```sql
 CREATE TABLE classmates (
-    -- id INTEGER PRIMARY KEY, -- PRIMARY KEY는 INTEGER로 써야한다.
     name TEXT NOT NULL,
     age INT NOT NULL,
     address TEXT NOT NULL
@@ -633,7 +632,7 @@ rowid       name        age         address
 
 
 
-### DELETE & INSERT
+#### DELETE & INSERT
 
 ```sql
 -- DELETE
@@ -672,5 +671,423 @@ name        age         address
 김철수         25          대전
 박나래         26          광주
 홍길동         27          제주도
+```
+
+
+
+
+
+## 03_users.sql
+
+### 전체 출력
+
+``` sql
+.mode csv
+-- users: table명
+.import users.csv users
+.headers on
+
+.tables
+SELECT * FROM users;
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+id,first_name,last_name,age,country,phone,balance
+```
+
+
+
+### 나이가 30 이상인 사람
+
+```sql
+-- 나이가 30 이상인 사람
+SELECT * FROM users WHERE age >= 30;
+```
+
+
+
+### 나이가 30 이상인 사람의 이름
+
+```sql
+-- 나이가 30 이상인 사람의 이름
+SELECT first_name FROM users WHERE age >= 30;
+```
+
+
+
+### '나이 >= 30, 성 == 김'인 사람의 성과 나이
+
+```sql
+-- '나이 >= 30, 성 == 김'인 사람의 성과 나이
+SELECT last_name, age FROM users
+WHERE age >= 30 AND last_name="김";
+```
+
+
+
+### 전체 카운트
+
+```sql
+-- 전체 카운트
+SELECT COUNT(*) FROM users;
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+COUNT(*)
+1000
+```
+
+
+
+### '나이 >= 30, 성 == 김'인 사람 카운트
+
+```sql
+-- '나이 >= 30, 성 == 김'인 사람 카운트
+SELECT COUNT(*) FROM users
+WHERE age >= 30 AND last_name="김";
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+COUNT(*)
+112
+```
+
+
+
+### 30살 이상인 사람의 나이 평균
+
+```sql
+-- 30살 이상인 사람의 나이 평균
+SELECT AVG(age) FROM users
+WHERE age >= 30;
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+AVG(age)
+35.1763285024155
+```
+
+
+
+### 잔액이 가장 높은 사람
+
+```sql
+-- 잔액이 가장 높은 사람
+SELECT first_name, MAX(balance) FROM users;
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+MAX(balance),first_name
+990000,"선영"
+```
+
+
+
+### 30살 이상 평균 잔액
+
+```sql
+-- 30살 이상 평균 잔액
+SELECT AVG(balance) FROM users
+WHERE age >= 30;
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+AVG(balance)
+153541.425120773
+```
+
+
+
+### 스키마 출력
+
+```sql
+.mode csv
+.import users.csv users
+
+.headers on
+.tables
+
+.schema users
+
+DROP TABLE users;
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+examples  users
+CREATE TABLE users(
+  "id" TEXT,
+  "first_name" TEXT,
+  "last_name" TEXT,
+  "age" TEXT,
+  "country" TEXT,
+  "phone" TEXT,
+  "balance" TEXT
+);
+```
+
+
+
+### 20대인 사람이 몇명?
+
+```sql
+-- 20대인 사람이 몇명?
+SELECT COUNT(*) FROM users
+WHERE age LIKE '2_'; -- '%'는 2로 시작하는 모든 수를 찾는다. -- users.csv 변경함
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+COUNT(*)
+373
+```
+
+
+
+### 지역번호가 02
+
+```sql
+-- 지역번호가 02
+SELECT COUNT(*) FROM users
+WHERE phone LIKE '02-%';
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+COUNT(*)
+249
+```
+
+
+
+### 준으로 끝나는 사람
+
+```sql
+-- 준으로 끝나는 사람
+SELECT COUNT(*) FROM users
+WHERE first_name LIKE '%준';
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+COUNT(*)
+31
+```
+
+
+
+### 중간번호가 5114인 사람
+
+```sql
+-- 중간번호가 5114인 사람
+SELECT COUNT(*) FROM users
+WHERE phone LIKE '%-5114-%';
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+COUNT(*)
+1
+```
+
+
+
+### 나이 오름차순 정렬 후 상위 10개
+
+```sql
+-- 나이 오름차순 정렬 후 상위 10개
+SELECT age FROM users
+ORDER BY age ASC LIMIT 10;
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+age
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+```
+
+
+
+### 나이 내림차순 정렬 후 상위 10개
+
+```sql
+-- 나이 내림차순 정렬 후 상위 10개
+SELECT age FROM users
+ORDER BY age DESC LIMIT 10;
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+age
+40
+40
+40
+40
+40
+40
+40
+40
+40
+40
+```
+
+
+
+### 나이순 성순으로 오름차순 10개
+
+```sql
+-- 나이순 성순으로 오름차순 10개
+SELECT age, last_name FROM users
+ORDER BY age, last_name LIMIT 10;
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+age,last_name
+15,"강"
+15,"고"
+15,"고"
+15,"곽"
+15,"김"
+15,"김"
+15,"김"
+15,"김"
+15,"김"
+15,"김"
+```
+
+
+
+### 잔액 내림차순 정렬 후 성 이름 출력 10명
+
+> csv에서 문자열로 인식해 제대로 된 결과가 나오지 않을 수도 있다.
+
+```sql
+-- 잔액 내림차순 정렬 후 성 이름 출력 10명
+SELECT last_name, first_name FROM users
+ORDER BY balance DESC LIMIT 10;
+```
+
+```sqlite
+sqlite> .read 03_users.sql
+last_name,first_name
+"김","선영"
+"나","상현"
+"이","정호"
+"이","상철"
+"최","지아"
+"박","준서"
+"문","미영"
+"고","하윤"
+"유","은정"
+"안","서윤"
+```
+
+
+
+## 04_DDL_a.sql
+
+```sql
+CREATE TABLE articles (
+    title TEXT NOT NULL,
+    content TEXT NOT NULL
+);
+.tables
+
+INSERT INTO articles
+VALUES ("1번글", "1번내용");
+
+SELECT * FROM articles;
+
+DROP TABLE articles;
+```
+
+```sqlite
+sqlite> .read 04_DDL_a.sql
+articles  examples
+title,content
+"1번글","1번내용"
+```
+
+
+
+### RENAME
+
+```sql
+CREATE TABLE articles (
+    title TEXT NOT NULL,
+    content TEXT NOT NULL
+);
+.tables
+
+INSERT INTO articles
+VALUES ("1번글", "1번내용");
+
+SELECT * FROM articles;
+
+ALTER TABLE articles RENAME TO news;
+.tables
+
+DROP TABLE news;
+```
+
+```sqlite
+sqlite> .read 04_DDL_a.sql
+articles  examples
+title,content
+"1번글","1번내용"
+examples  news
+```
+
+
+
+### 새로운 column  추가 (오류 발생)
+
+```sql
+-- 새로운 column 추가 (오류 발생)
+ALTER TABLE news
+ADD COLUMN created_at DATETIME NOT NULL;
+```
+
+```sqlite
+sqlite> .read 04_DDL_a.sql
+articles  examples
+title,content
+"1번글","1번내용"
+examples  news
+Error: near line 18: Cannot add a NOT NULL column with default value NULL
+```
+
+
+
+### 오류 수정
+
+```sql
+-- 새로운 column 추가
+ALTER TABLE news
+ADD COLUMN created_at DATETIME NOT NULL DEFAULT 1;
+```
+
+```sqlite
+sqlite> .read 04_DDL_a.sql
+articles  examples
+title,content
+"1번글","1번내용"
+examples  news
 ```
 
