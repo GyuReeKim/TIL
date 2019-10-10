@@ -65,8 +65,12 @@ class Feed(models.Model):
 ```
 
 ```bash
-$ pip install Pillow
+$ pip install Pillow # 이미지를 조작(기본적으로 이미지를 넣을 수 없기 때문)
 ```
+
+db 날리고 다시 migrations 해줘야 한다.
+
+migrations폴더의 initial 파일을 날려주면 된다.
 
 
 
