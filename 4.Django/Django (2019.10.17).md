@@ -203,7 +203,10 @@ In [6]: exit
 
 > 사용하지는 않음
 
-```
+```python
+from django.shortcuts import render
+
+
 def index(request):
     # embed()
     visit_num = request.session.get('visit_num', 0)
@@ -390,6 +393,9 @@ class TodoForm(forms.ModelForm):
 ## 글쓰기 (todos의 create)
 
 ```python
+from django.shortcuts import render, redirect
+from .forms import TodoForm
+
 def create(request):
     if request.method == "POST":
         form = TodoForm(request.POST)
@@ -405,5 +411,41 @@ def create(request):
         'form': form
     }
     return render(request, 'todos/form.html', context)
+```
+
+
+
+## 삭제
+
+``` python
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import TodoForm
+from .models import Todo
+
+def delete(request, id):
+    todo = get_object_or_404(Todo, id=id)
+    if todo.user == request.user:
+        todo.delete()
+    return redirect('todos:index')
+```
+
+
+
+## 로그인시 삭제할 수 있도록 설정
+
+```python
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def index(request):
+    ...
+
+@login_required
+def create(request):
+    ...
+
+@login_required
+def delete(request, id):
+    ...
 ```
 
